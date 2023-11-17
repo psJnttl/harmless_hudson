@@ -1,5 +1,5 @@
 import unittest
-from .lotto import lottery_numbers
+from lotto import lottery_numbers
 
 class TestLotteryNumbers(unittest.TestCase):
 
