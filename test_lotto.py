@@ -13,5 +13,13 @@ class TestLotteryNumbers(unittest.TestCase):
         result = lottery_numbers(1000, 1, 1000)
         self.assertEqual(len(result), 1000)
 
+    def test_lottery_numbers_unique(self):
+        result = lottery_numbers(10, 1, 10)
+        self.assertEqual(len(set(result)), 10)
+        result = lottery_numbers(100, 1, 100)
+        self.assertEqual(len(set(result)), 100)
+        result = lottery_numbers(1000, 1, 1000)
+        self.assertEqual(len(set(result)), 1000)
+
 if __name__ == "__main__":
     unittest.main()
