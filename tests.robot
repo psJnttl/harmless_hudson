@@ -26,6 +26,9 @@ Open Browser to Main Page
         Open Browser    ${APP_URL}    ${BROWSER}
     END
 
+Validate App Title
+    [Documentation]    Make sure that the title of the App page is correct.
+    Title Should Be    ${APP_TITLE}
 
 *** Test Cases ***
 Application Appears as Expected on Startup
