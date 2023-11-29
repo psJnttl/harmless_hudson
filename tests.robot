@@ -9,11 +9,19 @@ ${BROWSER}             firefox
 
 
 *** Keywords ***
+Open Headless Edge Browser to URL
+    [Documentation]    Open Browser to URL in headless mode.
+    [Arguments]    ${URL}
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].EdgeOptions()
+    Call Method    ${options}    add_argument    --headless
+    Create Webdriver    Edge    options=${options}
+    Go To    ${URL}
+
 Open Browser to Main Page
     [Documentation]    Open browser to Application main page.
     ${is_os_linux}=    Evaluate    sys.platform=="linux"    modules=sys
     IF    $is_os_linux
-        Open Browser    ${APP_URL}    edge
+        Open Headless Edge Browser to URL    ${APP_URL}
     ELSE
         Open Browser    ${APP_URL}    ${BROWSER}
     END
