@@ -7,6 +7,9 @@ ${APP_URL}             http://localhost:8090/
 ${APP_TITLE}           Lotto App
 ${BROWSER}             firefox
 ${APP_PAGE_HEADING}    Select Lotto Flavour
+${LOTTERY1_TITLE}      Veikkaus Lotto
+${LOTTERY1_LINK}       Veikkaus Lotto
+${LOTTERY1_HEADING}    New numbers for Veikkaus Lotto
 
 *** Keywords ***
 Open Headless Edge Browser to URL
@@ -42,3 +45,14 @@ Application Appears as Expected on Startup
     Validate Page Heading
     Close Browser
 
+Can Display Veikkaus Lotto Numbers
+    [Tags]    test_set_1
+    Open Browser to Main Page
+    Page Should Contain Link    xpath=//html/body/a[text()="${LOTTERY1_LINK}"]
+    Click Link    xpath=/html/body/a[text()="${LOTTERY1_LINK}"]
+    Wait Until Page Contains Element    timeout=1s
+    ...    locator=xpath=/html/body/h5[text()="${LOTTERY1_HEADING}"]
+    Title Should Be    ${LOTTERY1_TITLE}
+    Wait Until Page Contains Element    timeout=1s
+    ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
+    Close Browser
