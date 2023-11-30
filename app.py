@@ -1,5 +1,5 @@
 from flask import Flask
-from lotto import lottery_numbers
+from lotto import get_lottery_numbers
 
 app = Flask(__name__)
 
@@ -9,6 +9,7 @@ doc = """
   <body>
     <h4>Select Lotto Flavour</h4>
     <a href='/veikkauslotto'>Veikkaus Lotto</a>
+    <a href='/vikinglottery'>Viking Lotto</a>
   </body>
 </html>
 """
@@ -19,11 +20,14 @@ def root():
 
 @app.route('/veikkauslotto')
 def veikkauslotto():
-    new_numbers = "<span class='lotto-numbers'>"
-    for number in lottery_numbers(7, 1, 40):
-        new_numbers += f'{number} '
-    new_numbers += "</span>"
+    new_numbers = get_lottery_numbers(7, 1, 40)
     output = f"<html><head><title>Veikkaus Lotto</title></head><body><h5>New numbers for Veikkaus Lotto</h5>{new_numbers}</body></html>"
+    return output
+
+@app.route('/vikinglottery')
+def vikinglottery():
+    new_numbers = get_lottery_numbers(6, 1, 48)
+    output = f"<html><head><title>Viking Lotto</title></head><body><h5>New numbers for Viking Lotto</h5>{new_numbers}</body></html>"
     return output
 
 if __name__ == '__main__':
