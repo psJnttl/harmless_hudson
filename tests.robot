@@ -13,6 +13,9 @@ ${LOTTERY1_HEADING}    New numbers for Veikkaus Lotto
 ${LOTTERY2_LINK}       Viking Lotto
 ${LOTTERY2_HEADING}    New numbers for Viking Lotto
 ${LOTTERY2_TITLE}      Viking Lotto
+${LOTTERY3_LINK}       Euro Jackpot Lotto
+${LOTTERY3_HEADING}    New numbers for Euro Jackpot Lotto
+${LOTTERY3_TITLE}      Euro Jackpot Lotto
 
 *** Keywords ***
 Open Headless Edge Browser to URL
@@ -68,6 +71,18 @@ Can Display Viking Lotto Numbers
     Wait Until Page Contains Element    timeout=1s
     ...    locator=xpath=/html/body/h5[text()="${LOTTERY2_HEADING}"]
     Title Should Be    ${LOTTERY2_TITLE}
+    Wait Until Page Contains Element    timeout=1s
+    ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
+    Close Browser
+
+Can Display Viking Lotto Numbers
+    [Tags]    test_set_1
+    Open Browser to Main Page
+    Page Should Contain Link    xpath=//html/body/a[text()="${LOTTERY3_LINK}"]
+    Click Link    xpath=/html/body/a[text()="${LOTTERY3_LINK}"]
+    Wait Until Page Contains Element    timeout=1s
+    ...    locator=xpath=/html/body/h5[text()="${LOTTERY3_HEADING}"]
+    Title Should Be    ${LOTTERY3_TITLE}
     Wait Until Page Contains Element    timeout=1s
     ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
     Close Browser
