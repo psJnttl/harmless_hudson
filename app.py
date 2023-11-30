@@ -23,7 +23,7 @@ def veikkauslotto():
     for number in lottery_numbers(7, 1, 40):
         new_numbers += f'{number} '
     new_numbers += "</span>"
-    output = f"<html><head><title>Veikkaus Lotto</title></head><body><h5>New numbers for Veikkaus Lotto</h5>{new_numbers}</body></h>
+    output = f"<html><head><title>Veikkaus Lotto</title></head><body><h5>New numbers for Veikkaus Lotto</h5>{new_numbers}</body></html>"
     return output
 
 if __name__ == '__main__':
