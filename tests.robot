@@ -75,7 +75,7 @@ Can Display Viking Lotto Numbers
     ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
     Close Browser
 
-Can Display Viking Lotto Numbers
+Can Display Euro Jackpot Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
     Page Should Contain Link    xpath=//html/body/a[text()="${LOTTERY3_LINK}"]
