@@ -21,5 +21,13 @@ class TestLotteryNumbers(unittest.TestCase):
         result = lottery_numbers(1000, 1, 1000)
         self.assertEqual(len(set(result)), 1000)
 
+    def test_lottery_numbers_valid_range(self):
+        result = lottery_numbers(2, 1, 2)
+        self.assertTrue(all(1 <= x <= 2 for x in result))
+        result = lottery_numbers(10, 1, 100)
+        self.assertTrue(all(1 <= x <= 100 for x in result))
+        result = lottery_numbers(10, -100, 0)
+        self.assertTrue(all(-100 <= x <= 0 for x in result))
+
 if __name__ == "__main__":
     unittest.main()
