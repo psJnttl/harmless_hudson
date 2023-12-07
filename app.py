@@ -35,7 +35,7 @@ def root():
 @app.route('/veikkauslotto')
 def veikkauslotto():
     new_numbers = get_lottery_numbers(7, 1, 40)
-    return return lotto_page_generator(new_numbers, "Veikkaus Lotto")
+    return lotto_page_generator(new_numbers, "Veikkaus Lotto")
 
 @app.route('/vikinglottery')
 def vikinglottery():
