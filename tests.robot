@@ -8,7 +8,7 @@ ${APP_TITLE}           Lotto App
 ${BROWSER}             firefox
 ${APP_PAGE_HEADING}    Select Lotto Flavour
 ${LOTTERY1_TITLE}      Veikkaus Lotto
-${LOTTERY1_LINK}       Veikkaus Lotto
+${LOTTERY1_LINK}       Veikkaus
 ${LOTTERY1_HEADING}    New numbers for Veikkaus Lotto
 ${LOTTERY2_LINK}       Viking Lotto
 ${LOTTERY2_HEADING}    New numbers for Viking Lotto
@@ -54,8 +54,8 @@ Application Appears as Expected on Startup
 Can Display Veikkaus Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
-    Page Should Contain Link    xpath=//html/body/a[text()="${LOTTERY1_LINK}"]
-    Click Link    xpath=/html/body/a[text()="${LOTTERY1_LINK}"]
+    Page Should Contain Link    xpath=//html/body/table/tbody/tr[1]/td[1]/a[text()="${LOTTERY1_LINK}"]
+    Click Link    xpath=/html/body/table/tbody/tr[1]/td[1]/a[text()="${LOTTERY1_LINK}"]
     Wait Until Page Contains Element    timeout=1s
     ...    locator=xpath=/html/body/h5[text()="${LOTTERY1_HEADING}"]
     Title Should Be    ${LOTTERY1_TITLE}
