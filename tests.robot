@@ -10,7 +10,7 @@ ${APP_PAGE_HEADING}    Select Lotto Flavour
 ${LOTTERY1_TITLE}      Veikkaus Lotto
 ${LOTTERY1_LINK}       Veikkaus
 ${LOTTERY1_HEADING}    New numbers for Veikkaus Lotto
-${LOTTERY2_LINK}       Viking Lotto
+${LOTTERY2_LINK}       Viking
 ${LOTTERY2_HEADING}    New numbers for Viking Lotto
 ${LOTTERY2_TITLE}      Viking Lotto
 ${LOTTERY3_LINK}       Euro Jackpot Lotto
@@ -54,7 +54,7 @@ Application Appears as Expected on Startup
 Can Display Veikkaus Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
-    Page Should Contain Link    xpath=//html/body/table/tbody/tr[1]/td[1]/a[text()="${LOTTERY1_LINK}"]
+    Page Should Contain Link    xpath=/html/body/table/tbody/tr[1]/td[1]/a[text()="${LOTTERY1_LINK}"]
     Click Link    xpath=/html/body/table/tbody/tr[1]/td[1]/a[text()="${LOTTERY1_LINK}"]
     Wait Until Page Contains Element    timeout=1s
     ...    locator=xpath=/html/body/h5[text()="${LOTTERY1_HEADING}"]
@@ -66,8 +66,8 @@ Can Display Veikkaus Lotto Numbers
 Can Display Viking Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
-    Page Should Contain Link    xpath=//html/body/a[text()="${LOTTERY2_LINK}"]
-    Click Link    xpath=/html/body/a[text()="${LOTTERY2_LINK}"]
+    Page Should Contain Link    xpath=/html/body/table/tbody/tr[2]/td[1]/a[text()="${LOTTERY2_LINK}"]
+    Click Link    xpath=/html/body/table/tbody/tr[2]/td[1]/a[text()="${LOTTERY2_LINK}"]
     Wait Until Page Contains Element    timeout=1s
     ...    locator=xpath=/html/body/h5[text()="${LOTTERY2_HEADING}"]
     Title Should Be    ${LOTTERY2_TITLE}
