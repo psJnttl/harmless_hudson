@@ -8,9 +8,32 @@ doc = """
   <title>Lotto App</title>
   <body>
     <h4>Select Lotto Flavour</h4>
-    <a href='/veikkauslotto'>Veikkaus Lotto</a>
-    <a href='/vikinglottery'>Viking Lotto</a>
-    <a href='/eurojackpotlotto'>Euro Jackpot Lotto</a>
+    <table>
+      <thead>
+          <tr>
+          <th>Flavour</th>
+          <th>Rules</th>
+          <th>Permutations</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/veikkauslotto">Veikkaus</a></td>
+          <td>7 unique numbers, range 1-50</td>
+          <td>18643560</td>
+        </tr>
+        <tr>
+          <td><a href="/vikinglottery">Viking</a></td>
+          <td>6 unique numbers, range 1-48</td>
+          <td>12271512</td>
+        </tr>
+        <tr>
+          <td><a href="/eurojackpotlotto">Euro Jackpot</a></td>
+          <td>5 unique numbers, range 1-50 and 2 unique numbers, range 1-12</td>
+          <td>139838160</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
 """
