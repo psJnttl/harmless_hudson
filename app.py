@@ -2,10 +2,23 @@ from flask import Flask
 from lotto import get_lottery_numbers, get_eurojackpot_lottery_numbers
 
 app = Flask(__name__)
+style = """
+table a {
+    color: #0099ff;
+    text-decoration: none;
+}
+table a:hover {
+    color: white;
+    background-color: #0099ff;
+}
+"""
 
-doc = """
+doc = f"""
 <html>
-  <title>Lotto App</title>
+  <head>
+    <style>{style}</style>
+    <title>Lotto App</title>
+  </head>
   <body>
     <h4>Select Lotto Flavour</h4>
     <table>
