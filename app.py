@@ -34,7 +34,7 @@ def vikinglottery():
 @app.route('/eurojackpotlotto')
 def eurojackpotlotto():
     new_numbers = get_eurojackpot_lottery_numbers()
-    output = f"<html><head><title>Viking Lotto</title></head><body><h5>ew numbers for Euro Jackpot Lotto</h5>{new_number}</body></html>"
+    output = f"<html><head><title>Viking Lotto</title></head><body><h5>ew numbers for Euro Jackpot Lotto</h5>{new_numbers}</body></html>"
     return output
 
 if __name__ == '__main__':
