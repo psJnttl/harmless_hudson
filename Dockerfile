@@ -2,13 +2,13 @@ FROM alpine:latest
 
 # Install python and pip
 RUN apk add --no-cache --update python3 py3-pip bash
-ADD ./requirements.txt /tmp/requirements.txt
+ADD ./app/requirements.txt /tmp/requirements.txt
 
 # Install dependencies
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
 # Add code
-ADD *.py /opt/webapp/
+ADD ./app/*.py /opt/webapp/
 WORKDIR /opt/webapp
 
 # Run the image as a non-root user
