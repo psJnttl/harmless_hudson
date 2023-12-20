@@ -43,6 +43,17 @@ Validate Page Heading
     [Documentation]    Checks that the heading on Main page is correct.
     Page Should Contain Element    xpath=/html/body/h4[text()="${APP_PAGE_HEADING}"]
 
+Can Display Selected Lotto Flavour Numbers
+    [Arguments]    ${LOTTERY_LINK}    ${LOTTERY_HEADING}    ${LOTTERY_TITLE}    ${NUMBER_IN_LIST}
+    Page Should Contain Link    xpath=/html/body/table/tbody/tr[${NUMBER_IN_LIST}]/td[1]/a[text()="${LOTTERY_LINK}"]
+    Click Link    xpath=/html/body/table/tbody/tr[${NUMBER_IN_LIST}]/td[1]/a[text()="${LOTTERY_LINK}"]
+    Wait Until Page Contains Element    timeout=1s
+    ...    locator=xpath=/html/body/h5[text()="${LOTTERY_HEADING}"]
+    Title Should Be    ${LOTTERY_TITLE}
+    Wait Until Page Contains Element    timeout=1s
+    ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
+
+
 *** Test Cases ***
 Application Appears as Expected on Startup
     [Tags]    test_set_1
@@ -54,35 +65,17 @@ Application Appears as Expected on Startup
 Can Display Veikkaus Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
-    Page Should Contain Link    xpath=/html/body/table/tbody/tr[1]/td[1]/a[text()="${LOTTERY1_LINK}"]
-    Click Link    xpath=/html/body/table/tbody/tr[1]/td[1]/a[text()="${LOTTERY1_LINK}"]
-    Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/h5[text()="${LOTTERY1_HEADING}"]
-    Title Should Be    ${LOTTERY1_TITLE}
-    Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
+    Can Display Selected Lotto Flavour Numbers    ${LOTTERY1_LINK}    ${LOTTERY1_HEADING}    ${LOTTERY1_TITLE}    1
     Close Browser
 
 Can Display Viking Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
-    Page Should Contain Link    xpath=/html/body/table/tbody/tr[2]/td[1]/a[text()="${LOTTERY2_LINK}"]
-    Click Link    xpath=/html/body/table/tbody/tr[2]/td[1]/a[text()="${LOTTERY2_LINK}"]
-    Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/h5[text()="${LOTTERY2_HEADING}"]
-    Title Should Be    ${LOTTERY2_TITLE}
-    Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
+    Can Display Selected Lotto Flavour Numbers    ${LOTTERY2_LINK}    ${LOTTERY2_HEADING}    ${LOTTERY2_TITLE}    2
     Close Browser
 
 Can Display Euro Jackpot Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
-    Page Should Contain Link    xpath=/html/body/table/tbody/tr[3]/td[1]/a[text()="${LOTTERY3_LINK}"]
-    Click Link    xpath=/html/body/table/tbody/tr[3]/td[1]/a[text()="${LOTTERY3_LINK}"]
-    Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/h5[text()="${LOTTERY3_HEADING}"]
-    Title Should Be    ${LOTTERY3_TITLE}
-    Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
+    Can Display Selected Lotto Flavour Numbers    ${LOTTERY3_LINK}    ${LOTTERY3_HEADING}    ${LOTTERY3_TITLE}    3
     Close Browser
