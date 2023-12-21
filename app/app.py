@@ -88,7 +88,7 @@ def eurojackpotlotto():
     new_numbers = get_eurojackpot_lottery_numbers()
     return lotto_page_generator(new_numbers, "Euro Jackpot Lotto")
 
-@app.route('jokeri')
+@app.route('/jokeri')
 def veikkausjokeri():
     new_numbers = get_joker_numbers()
     return lotto_page_generator(new_numbers, "Veikkaus Jokeri")
