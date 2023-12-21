@@ -1,5 +1,5 @@
 import unittest
-from lotto import lottery_numbers, get_joker_numbers
+from lotto import lottery_numbers, joker_numbers
 
 class TestLotteryNumbers(unittest.TestCase):
 
@@ -30,11 +30,11 @@ class TestLotteryNumbers(unittest.TestCase):
         self.assertTrue(all(-100 <= x <= 0 for x in result))
 
     def test_joker_numbers_length(self):
-        numbers = get_joker_numbers()
+        numbers = joker_numbers()
         self.assertEqual(len(numbers), 7)
 
     def test_joker_numbers_range(self):
-        numbers = get_joker_numbers()
+        numbers = joker_numbers()
         for number in numbers:
             self.assertTrue(0 <= number <= 9)
 

@@ -23,12 +23,19 @@ def get_eurojackpot_lottery_numbers():
     output += "</span>"
     return output
 
-def get_joker_numbers():
+def joker_numbers():
     result = []
     for i in range(7):
         next_number = random.randint(0, 9)
         result.append(next_number)
     return result
+
+def get_joker_numbers():
+    output = "<span class='lotto-numbers'>"
+    for number in joker_numbers():
+        output += f'{number} '
+    output += "</span>"
+    return output
 
 if __name__ == '__main__':
     pass
