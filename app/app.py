@@ -1,5 +1,5 @@
 from flask import Flask
-from lotto import get_lottery_numbers, get_eurojackpot_lottery_numbers
+from lotto import get_lottery_numbers, get_eurojackpot_lottery_numbers, get_joker_numbers
 
 app = Flask(__name__)
 style = """
@@ -45,6 +45,11 @@ doc = f"""
           <td>5 unique numbers, range 1-50 and 2 unique numbers, range 1-12</td>
           <td>139838160</td>
         </tr>
+        <tr>
+          <td><a href="/jokeri">Jokeri</a></td>
+          <td>7 non-unique numbers, range 0-9</td>
+          <td>10000000</td>          
+        </tr>
       </tbody>
     </table>
   </body>
@@ -82,6 +87,11 @@ def vikinglottery():
 def eurojackpotlotto():
     new_numbers = get_eurojackpot_lottery_numbers()
     return lotto_page_generator(new_numbers, "Euro Jackpot Lotto")
+
+@app.route('jokeri')
+def veikkausjokeri():
+    new_numbers = get_joker_numbers()
+    return lotto_page_generator(new_numbers, "Veikkaus Jokeri")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
