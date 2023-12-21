@@ -16,6 +16,10 @@ ${LOTTERY2_TITLE}      Viking Lotto
 ${LOTTERY3_LINK}       Euro Jackpot
 ${LOTTERY3_HEADING}    New numbers for Euro Jackpot Lotto
 ${LOTTERY3_TITLE}      Euro Jackpot Lotto
+${LOTTERY4_LINK}       Jokeri
+${LOTTERY4_HEADING}    New numbers for Veikkaus Jokeri
+${LOTTERY4_TITLE}      Veikkaus Jokeri
+
 
 *** Keywords ***
 Open Headless Edge Browser to URL
@@ -78,4 +82,10 @@ Can Display Euro Jackpot Lotto Numbers
     [Tags]    test_set_1
     Open Browser to Main Page
     Can Display Selected Lotto Flavour Numbers    ${LOTTERY3_LINK}    ${LOTTERY3_HEADING}    ${LOTTERY3_TITLE}    3
+    Close Browser
+
+Can Display Veikkaus Jokeri Numbers
+    [Tags]    test_set_1
+    Open Browser to Main Page
+    Can Display Selected Lotto Flavour Numbers    ${LOTTERY4_LINK}    ${LOTTERY4_HEADING}    ${LOTTERY4_TITLE}    4
     Close Browser
