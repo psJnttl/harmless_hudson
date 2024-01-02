@@ -45,18 +45,17 @@ Validate App Title
 
 Validate Page Heading
     [Documentation]    Checks that the heading on Main page is correct.
-    Page Should Contain Element    xpath=/html/body/h4[text()="${APP_PAGE_HEADING}"]
+    Page Should Contain Element    xpath=/html/body/div/h4[text()="${APP_PAGE_HEADING}"]
 
 Can Display Selected Lotto Flavour Numbers
     [Arguments]    ${LOTTERY_LINK}    ${LOTTERY_HEADING}    ${LOTTERY_TITLE}    ${NUMBER_IN_LIST}
-    Page Should Contain Link    xpath=/html/body/table/tbody/tr[${NUMBER_IN_LIST}]/td[1]/a[text()="${LOTTERY_LINK}"]
-    Click Link    xpath=/html/body/table/tbody/tr[${NUMBER_IN_LIST}]/td[1]/a[text()="${LOTTERY_LINK}"]
+    Page Should Contain Link    xpath=/html/body/div/table/tbody/tr[${NUMBER_IN_LIST}]/td[1]/a[text()="${LOTTERY_LINK}"]
+    Click Link    xpath=/html/body/div/table/tbody/tr[${NUMBER_IN_LIST}]/td[1]/a[text()="${LOTTERY_LINK}"]
     Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/h5[text()="${LOTTERY_HEADING}"]
+    ...    locator=xpath=/html/body/div/table/thead/tr[1]/th[text()="${LOTTERY_HEADING}"]
     Title Should Be    ${LOTTERY_TITLE}
     Wait Until Page Contains Element    timeout=1s
-    ...    locator=xpath=/html/body/span[@class="lotto-numbers"]
-
+    ...    locator=xpath=/html/body/div/table/tbody/tr[1]/td/span[@class="lotto-numbers"]
 
 *** Test Cases ***
 Application Appears as Expected on Startup
